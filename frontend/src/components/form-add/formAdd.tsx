@@ -7,6 +7,8 @@ export default function FormAdd() {
     const [descricao, setDescricao] = useState('')
     const [preco, setPreco] = useState('')
 
+    const [displayCadastrar, setDisplayCadastrar] = useState('none')
+
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
@@ -24,7 +26,14 @@ export default function FormAdd() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+             <button onClick={()=>{
+                if(displayCadastrar == 'block'){
+                    setDisplayCadastrar('none')
+                }else{
+                    setDisplayCadastrar('block')
+                }
+            }}>Cadastrar</button>
+            <form onSubmit={handleSubmit} style={{display: `${displayCadastrar}`}}>
                 <label htmlFor="nome">Nome do produto:</label>
                 <input
                     type="text"

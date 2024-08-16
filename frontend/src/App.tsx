@@ -1,9 +1,11 @@
-import FormAdd from "./components/formAdd";
+import FormAdd from "./components/form-add/formAdd";
+import FormUpdate from "./components/form-update/formUpdate";
 
 function App() {
   return (
     <div className="App">
-      <FormAdd/>
+      <FormAdd />
+      <FormUpdate />
     </div>
   );
 }

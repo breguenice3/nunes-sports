@@ -36,6 +36,27 @@ app.post('/api/products', async (req, res) => {
     }
   });
 
+  app.post('/api/update', async(req, res)=>{
+    try{
+      const {nomeAtualizado, descricaoAtualizado, precoAtualizado, id} = req.body
+
+      const produtoAtualizado = await Produto.update(
+        {
+          nome: nomeAtualizado,
+          descricao: descricaoAtualizado,
+          preco: precoAtualizado
+        },{
+          where: {
+            id: id
+          }
+        }
+      )
+    }catch (error) {
+      console.error('Erro ao adicionar produto:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+  })
+
 app.listen(8082, () => {
     console.log('Servidor rodando na url http://localhost:8082');
 });
