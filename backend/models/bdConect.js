@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Produto = require('./Posts'); // Verifique o caminho
+const { sequelize } = require('./db');
 const corsOptions = {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
@@ -56,6 +57,15 @@ app.post('/api/products', async (req, res) => {
       res.status(500).json({ error: 'Erro interno do servidor' });
     }
   })
+
+  app.use("/", async(_, res) =>{
+    const select = await sequelize.query("SELECT * FROM produtos", {
+      model: Produto,
+      mapToModel: true,
+    })
+
+    res.status(200).json(select);
+})
 
 app.listen(8082, () => {
     console.log('Servidor rodando na url http://localhost:8082');

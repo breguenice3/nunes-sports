@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from 'axios';
 
 export default function FormAdd() {
@@ -10,7 +10,6 @@ export default function FormAdd() {
     const [displayCadastrar, setDisplayCadastrar] = useState('none')
 
     const handleSubmit = async (e: any) => {
-        e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8082/api/products', {
                 nome,

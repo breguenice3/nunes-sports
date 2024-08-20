@@ -1,17 +1,18 @@
 import { useState } from "react";
 import axios from 'axios';
 
-export default function FormUpdate() {
+export default function FormUpdate(idC: any) {
 
     const [nomeAtualizado, setNomeAtualizado] = useState('');
     const [descricaoAtualizado, setDescricaoAtualizado] = useState('')
     const [precoAtualizado, setPrecoAtualizado] = useState('')
-    const [id, setId] = useState('')
-
+    
     const [display, setDisplay] = useState('none')
 
-    const handleUpdate = async(e: any) => {
-        e.preventDefault()
+    const id = idC.id
+    
+
+    const handleUpdate = async (e: any) => {
         try {
             const response = await axios.post('http://localhost:8082/api/update', {
                 nomeAtualizado,
@@ -29,14 +30,14 @@ export default function FormUpdate() {
 
     return (
         <div>
-            <button onClick={()=>{
-                if(display == 'block'){
+            <button onClick={() => {
+                if (display == 'block') {
                     setDisplay('none')
-                }else{
+                } else {
                     setDisplay('block')
                 }
             }}>Atualizar</button>
-            <form onSubmit={handleUpdate} style={{display: `${display}`}}>
+            <form onSubmit={handleUpdate} style={{ display: `${display}` }}>
                 <label htmlFor="nomeAtt">Nome atualizado:</label>
                 <input
                     type="text"
@@ -65,13 +66,8 @@ export default function FormUpdate() {
                         setPrecoAtualizado(e.target.value)
                     }}
                 />
-                <input type="number" placeholder="id"
-                    onChange={(e)=>{
-                        setId(e.target.value)
-                    }}
-                />
                 <button type="submit">Atualizar produto</button>
-                <p>{nomeAtualizado + "   " + descricaoAtualizado + "   " + precoAtualizado + "   " + id}</p>
+                {/* <p>{nomeAtualizado + "   " + descricaoAtualizado + "   " + precoAtualizado + "   " +  id}</p> */}
             </form>
         </div>
     )
