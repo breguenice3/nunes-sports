@@ -5,21 +5,19 @@ interface Props {
     nome: string,
     descricao: string,
     valor: string,
-    id: any
+    id: any,
+    url: string
 }
 
-export default function Card({ nome, descricao, valor, id }: Props) {
-
-    console.log(id.value);
+export default function Card({ nome, descricao, valor, id, url }: Props) {
 
     return (
         <div>
             <CardStyled>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Apd-5qaDSGuKucXJMEhmqPELT7w_7ywxPA&s" alt="" />
+                <img src={url} alt="" />
                 <h1>{nome}</h1>
                 <p>{descricao}</p>
                 <p>R${valor}</p>
-                <p>{id}</p>
 
                 <FormUpdate id={id} />
             </CardStyled>

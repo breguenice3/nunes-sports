@@ -13,6 +13,10 @@ const Produto = sequelize.define('produtos', {
     preco: {
         type: DataTypes.FLOAT,
         allowNull: false
+    },
+    url: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }
 )

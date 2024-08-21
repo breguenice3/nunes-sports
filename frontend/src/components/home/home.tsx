@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "../cardProduto/card";
 import styled from "styled-components";
-import FormUpdate from "../form-update/formUpdate";
+import FormAdd from "../form-add/formAdd";
 
 export default function Home() {
 
@@ -17,16 +17,21 @@ export default function Home() {
     }, []);
 
     console.log(produtos);
-    
+
 
     return (
-        <ContainerCards>
-            {produtos.map((produto)=>(
-                <div>
-                <Card nome={produto.nome} descricao={produto.descricao} valor={produto.preco} id={produto.id} key={produto.id}/>
-                </div>               
-            ))}
-        </ContainerCards>
+        <HomeContainer>
+            <HeaderStyled>
+                <FormAdd />
+            </HeaderStyled>
+            <ContainerCards>
+                {produtos.map((produto) => (
+                    <div>
+                        <Card nome={produto.nome} descricao={produto.descricao} valor={produto.preco} id={produto.id} key={produto.id} url={produto.url} />
+                    </div>
+                ))}
+            </ContainerCards>
+        </HomeContainer>
     )
 }
 
@@ -38,5 +43,15 @@ const ContainerCards = styled.div`
     gap: 40px;
     justify-content: space-evenly;
     padding: 50px 50px;
+`
+
+const HeaderStyled = styled.header`
+    width: 100%;
+    display: flex;
+`
+
+const HomeContainer = styled.div`
+    padding-top: 20px;
+    width: 100%;
     box-sizing: border-box;
 `

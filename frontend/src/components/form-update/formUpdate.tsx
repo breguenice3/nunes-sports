@@ -6,6 +6,7 @@ export default function FormUpdate(idC: any) {
     const [nomeAtualizado, setNomeAtualizado] = useState('');
     const [descricaoAtualizado, setDescricaoAtualizado] = useState('')
     const [precoAtualizado, setPrecoAtualizado] = useState('')
+    const [urlAtualizada, setUrlAtualizada] = useState('')
     
     const [display, setDisplay] = useState('none')
 
@@ -18,7 +19,8 @@ export default function FormUpdate(idC: any) {
                 nomeAtualizado,
                 descricaoAtualizado,
                 precoAtualizado,
-                id
+                id,
+                urlAtualizada
             });
             console.log('Produto adicionado: ', response.data);
         } catch (err) {
@@ -64,6 +66,15 @@ export default function FormUpdate(idC: any) {
                     placeholder="Digite o novo valor do produto..."
                     onChange={(e) => {
                         setPrecoAtualizado(e.target.value)
+                    }}
+                />
+                <label htmlFor="imgAtt">Novo url da imagem:</label>
+                <input
+                    type="text"
+                    id="imgAtt"
+                    placeholder="Digite a nova url da imagem..."
+                    onChange={(e) => {
+                        setUrlAtualizada(e.target.value)
                     }}
                 />
                 <button type="submit">Atualizar produto</button>

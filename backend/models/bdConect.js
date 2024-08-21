@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 app.post('/api/products', async (req, res) => {
     try {
-      const { nome, descricao, preco } = req.body;
+      const { nome, descricao, preco, url } = req.body;
   
       // Validação do preço
       if (isNaN(preco)) {
@@ -27,7 +27,8 @@ app.post('/api/products', async (req, res) => {
       const novoProduto = await Produto.create({
         nome,
         descricao,
-        preco
+        preco,
+        url
       });
   
       res.status(201).json({ message: 'Produto adicionado com sucesso!', produto: novoProduto });
@@ -39,13 +40,14 @@ app.post('/api/products', async (req, res) => {
 
   app.post('/api/update', async(req, res)=>{
     try{
-      const {nomeAtualizado, descricaoAtualizado, precoAtualizado, id} = req.body
+      const {nomeAtualizado, descricaoAtualizado, precoAtualizado, id, urlAtualizada} = req.body
 
       const produtoAtualizado = await Produto.update(
         {
           nome: nomeAtualizado,
           descricao: descricaoAtualizado,
-          preco: precoAtualizado
+          preco: precoAtualizado,
+          url: urlAtualizada
         },{
           where: {
             id: id
