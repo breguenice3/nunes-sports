@@ -133,7 +133,6 @@ const StyledAddButton = styled.button`
     cursor: pointer;
     font-size: 18px;
     text-transform: uppercase;
-    margin-bottom: 20px;
     border: 2px solid transparent;
 
     &:hover{
