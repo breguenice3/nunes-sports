@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from 'axios';
+import styled from "styled-components";
 
 export default function FormUpdate(idC: any) {
 
@@ -7,11 +8,8 @@ export default function FormUpdate(idC: any) {
     const [descricaoAtualizado, setDescricaoAtualizado] = useState('')
     const [precoAtualizado, setPrecoAtualizado] = useState('')
     const [urlAtualizada, setUrlAtualizada] = useState('')
-    
-    const [display, setDisplay] = useState('none')
 
     const id = idC.id
-    
 
     const handleUpdate = async (e: any) => {
         try {
@@ -29,57 +27,97 @@ export default function FormUpdate(idC: any) {
         }
     }
 
-
     return (
         <div>
-            <button onClick={() => {
-                if (display == 'block') {
-                    setDisplay('none')
-                } else {
-                    setDisplay('block')
-                }
-            }}>Atualizar</button>
-            <form onSubmit={handleUpdate} style={{ display: `${display}` }}>
-                <label htmlFor="nomeAtt">Nome atualizado:</label>
-                <input
-                    type="text"
-                    id="nomeAtt"
-                    placeholder="Digite o novo nome do produto..."
-                    onChange={(e) => {
-                        setNomeAtualizado(e.target.value)
-                    }}
-                />
-                <label htmlFor="descAtt">Nova descrição do produto:</label>
-                <input
-                    type="text"
-                    id="descAtt"
-                    placeholder="Digite a nova descricao do produto..."
-                    onChange={(e) => {
-                        setDescricaoAtualizado(e.target.value)
-                    }}
-                />
-                <label htmlFor="precoAtt">Novo preço de produto:</label>
-                <input
-                    type="number"
-                    step={'0.0010'}
-                    id="precoAtt"
-                    placeholder="Digite o novo valor do produto..."
-                    onChange={(e) => {
-                        setPrecoAtualizado(e.target.value)
-                    }}
-                />
-                <label htmlFor="imgAtt">Novo url da imagem:</label>
-                <input
-                    type="text"
-                    id="imgAtt"
-                    placeholder="Digite a nova url da imagem..."
-                    onChange={(e) => {
-                        setUrlAtualizada(e.target.value)
-                    }}
-                />
-                <button type="submit">Atualizar produto</button>
-                {/* <p>{nomeAtualizado + "   " + descricaoAtualizado + "   " + precoAtualizado + "   " +  id}</p> */}
-            </form>
+            <FormStyled onSubmit={handleUpdate}>
+                <div>
+                    <label htmlFor="nomeAtt">Nome atualizado:</label>
+                    <input
+                        type="text"
+                        id="nomeAtt"
+                        placeholder="Digite o novo nome do produto..."
+                        onChange={(e) => {
+                            setNomeAtualizado(e.target.value)
+                        }}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="descAtt">Descrição atualizada:</label>
+                    <input
+                        type="text"
+                        id="descAtt"
+                        placeholder="Digite a nova descricao do produto..."
+                        onChange={(e) => {
+                            setDescricaoAtualizado(e.target.value)
+                        }}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="precoAtt">Preço atualizado:</label>
+                    <input
+                        type="number"
+                        step={'0.0010'}
+                        id="precoAtt"
+                        placeholder="Digite o novo valor do produto..."
+                        onChange={(e) => {
+                            setPrecoAtualizado(e.target.value)
+                        }}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="imgAtt">Nova imagem:</label>
+                    <input
+                        type="text"
+                        id="imgAtt"
+                        placeholder="Digite a nova url da imagem..."
+                        onChange={(e) => {
+                            setUrlAtualizada(e.target.value)
+                        }}
+                        required
+                    />
+                </div>
+                <StyledSubmitButton type="submit">Atualizar</StyledSubmitButton>
+            </FormStyled>
         </div>
     )
 }
+
+const FormStyled = styled.form`
+    padding-top: 20px;
+
+    & div{
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+
+    & input{
+        width: 300px;
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+    }
+`
+
+const StyledSubmitButton = styled.button`
+    background-color: hsl(0, 94%, 66%);
+    border-radius: 10px;
+    color: aliceblue;
+    padding: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+
+    &:hover{
+        border: 2px solid rgba(64, 34, 134, 0.842);
+        color: white;
+    }
+`

@@ -45,6 +45,7 @@ export default function FormAdd() {
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                         placeholder="Digite o nome do produto..."
+                        required
                     />
                 </div>
                 <div>
@@ -56,6 +57,7 @@ export default function FormAdd() {
                         value={descricao}
                         onChange={(e) => setDescricao(e.target.value)}
                         placeholder="Descreva o produto..."
+                        required
                     />
                 </div>
                 <div>
@@ -68,6 +70,7 @@ export default function FormAdd() {
                         value={preco}
                         onChange={(e) => setPreco(e.target.value)}
                         placeholder="Digite o valor do produto..."
+                        required
                     />
                 </div>
                 <div>
@@ -79,6 +82,7 @@ export default function FormAdd() {
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                         placeholder="Digite a url da imagem..."
+                        required
                     />
                 </div>
                 <StyledSubmitButton type="submit">Criar</StyledSubmitButton>
@@ -90,9 +94,10 @@ export default function FormAdd() {
 const FormStyled = styled.form`
     width: auto;
     height: 500px;
-    background-color: hsl(231, 69%, 60%);
+    background-color: rgba(64, 34, 134, 0.842);
     padding: 50px 50px;
     border-radius: 15px;
+    color: white;
 
     & div{
         width: 300px;
@@ -120,9 +125,9 @@ const AddContainer = styled.div`
 `
 
 const StyledAddButton = styled.button`
-    background-color: hsl(231, 69%, 60%);
+    background-color: rgba(64, 34, 134, 0.842);
     color: white;
-    padding: 20px;
+    padding: 12px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -132,17 +137,17 @@ const StyledAddButton = styled.button`
     border: 2px solid transparent;
 
     &:hover{
-        border: 2px solid hsl(231, 69%, 60%);
+        border: 2px solid rgba(64, 34, 134, 0.842);
         background-color: transparent;
-        color: hsl(231, 69%, 60%);
+        color: rgba(64, 34, 134, 0.842);
     }
 `
 
 const StyledSubmitButton = styled.button`
-    background-color: #07a30768;
+    background-color: hsl(0, 94%, 66%);
     border-radius: 10px;
     color: aliceblue;
-    padding: 10px;
+    padding: 7px;
     border: none;
     cursor: pointer;
     font-size: 18px;
@@ -151,7 +156,7 @@ const StyledSubmitButton = styled.button`
     border: 2px solid transparent;
 
     &:hover{
-        border: 2px solid #057a05ba;
+        border: 2px solid rgba(64, 34, 134, 0.842);
         /* background-color: transparent; */
         color: white;
     }
