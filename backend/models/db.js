@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize')
 const Produto = require('./Posts')
 
 //conexao com banco de dados mysql
-const sequelize = new Sequelize('produtos', 'root', 'Binha#3285', {
+const sequelize = new Sequelize('produtos', 'root', '', {
     host: "localhost",
     dialect: 'mysql'
 })

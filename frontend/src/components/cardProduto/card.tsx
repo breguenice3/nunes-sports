@@ -71,6 +71,7 @@ const CardStyled = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
+    gap: 10px;
 
     &:hover{
         box-shadow: 2px 3px 4px 5px rgba(64, 34, 134, 0.842);
@@ -83,6 +84,12 @@ const CardStyled = styled.div`
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
     }
+
+    & :nth-child(3){
+        color: hsl(229, 8%, 60%);
+        font-size: 14px;
+    }
+ 
 `
 
 const PencilButton = styled.button`

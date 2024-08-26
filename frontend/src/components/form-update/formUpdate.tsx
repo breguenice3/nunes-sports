@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 import styled from "styled-components";
+import DeleteButton from "../deleteButton/buttonDelete";
 
 export default function FormUpdate(idC: any) {
 
@@ -79,8 +80,13 @@ export default function FormUpdate(idC: any) {
                         required
                     />
                 </div>
-                <StyledSubmitButton type="submit">Atualizar</StyledSubmitButton>
+                <div>
+                    <StyledSubmitButton type="submit">Atualizar</StyledSubmitButton>
+                </div>
             </FormStyled>
+            <StyledButtonDiv>
+                <DeleteButton id={id}/>
+            </StyledButtonDiv>
         </div>
     )
 }
@@ -93,7 +99,7 @@ const FormStyled = styled.form`
         gap: 5px;
         flex-direction: column;
         justify-content: center;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
     }
 
     & input{
@@ -105,7 +111,7 @@ const FormStyled = styled.form`
 `
 
 const StyledSubmitButton = styled.button`
-    background-color: hsl(0, 94%, 66%);
+    background-color: rgba(64, 34, 134, 0.842);
     border-radius: 10px;
     color: aliceblue;
     padding: 3px;
@@ -113,11 +119,20 @@ const StyledSubmitButton = styled.button`
     cursor: pointer;
     font-size: 14px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     border: 2px solid transparent;
+    margin-top: 20px;
 
     &:hover{
         border: 2px solid rgba(64, 34, 134, 0.842);
-        color: white;
+        color: rgba(64, 34, 134, 0.842);
+        background-color: transparent;
     }
+`
+
+const StyledButtonDiv = styled.div`
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        justify-content: center;
 `
