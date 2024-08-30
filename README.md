@@ -16,4 +16,4 @@ Para utilizar o projeto, siga os passos abaixo:
 Certifique-se de seguir esses passos para garantir o funcionamento adequado do projeto.
 
 
-![Preview do nunes sports](../nunes/frontend/public/image.png)
+![Preview do nunes sports](../nunes/frontend/public/image.jpg)
