@@ -14,3 +14,6 @@ Para utilizar o projeto, siga os passos abaixo:
 4. Em seguida, abra o terminal e inicie o arquivo bdConect.js utilizando o comando node.
 5. Após isso, inicie o front-end com o comando npm start para carregar os dados do backend.
 Certifique-se de seguir esses passos para garantir o funcionamento adequado do projeto.
+
+
+![Preview do nunes sports](../nunes/frontend/public/image.png)
